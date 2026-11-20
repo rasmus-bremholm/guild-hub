@@ -1,5 +1,6 @@
 <Solution>
   <Folder Name="/src/">
     <Project Path="src/GuildHub.Api/GuildHub.Api.csproj" />
+    <Project Path="src/GuildHub.Modules.Blizzard/GuildHub.Modules.Blizzard.csproj" />
   </Folder>
 </Solution>
