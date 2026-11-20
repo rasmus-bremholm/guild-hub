@@ -1,0 +1,5 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/GuildHub.Api/GuildHub.Api.csproj" />
+  </Folder>
+</Solution>

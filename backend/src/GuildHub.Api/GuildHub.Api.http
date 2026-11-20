@@ -1,0 +1,6 @@
+@GuildHub.Api_HostAddress = http://localhost:5299
+
+GET {{GuildHub.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
