@@ -14,6 +14,7 @@ public static class BlizzardModule
    )
    {
       services.Configure<BlizzardOptions>(configuration.GetSection("Blizzard"));
+      services.AddHttpClient<BlizzardTokenClient>();
       return services;
    }
 
@@ -28,6 +29,17 @@ public static class BlizzardModule
             HasClientId = !string.IsNullOrEmpty(o.ClientId),
             HasClientSecret = !string.IsNullOrEmpty(o.ClientSecret),
             o.Region
+         };
+      });
+
+
+      app.MapGet("/blizzard/token-check", async (BlizzardTokenClient tokens, CancellationToken ct) =>
+      {
+         var token = await tokens.GetClientTokenAsync(ct);
+         return new
+         {
+            GotToken = !string.IsNullOrEmpty(token.AccessToken),
+            token.ExpiresIn
          };
       });
       return app;
