@@ -15,6 +15,8 @@ public static class BlizzardModule
    {
       services.Configure<BlizzardOptions>(configuration.GetSection("Blizzard"));
       services.AddHttpClient<BlizzardTokenClient>();
+      services.AddMemoryCache();
+      services.AddScoped<BlizzardTokenProvider>();
       return services;
    }
 
@@ -42,6 +44,7 @@ public static class BlizzardModule
             token.ExpiresIn
          };
       });
+
       return app;
    }
 }
